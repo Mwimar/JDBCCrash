@@ -22,5 +22,6 @@ public class DemoJDBC {
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
         System.out.println(rs.next());
+        con.close();
     }
 }
