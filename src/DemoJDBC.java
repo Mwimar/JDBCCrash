@@ -18,5 +18,7 @@ public class DemoJDBC {
 
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
+        String query = "select sname from student where sid=2";
+        Statement st = con.createStatement();
     }
 }
