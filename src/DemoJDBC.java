@@ -1,17 +1,22 @@
 import java.sql.*;
 
 public class DemoJDBC {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws Exception {
         /*
-        import package
-        load connection
-        create connection
+        1.import package
+        2.load connection
+        3.create connection
         create statement
         execute statement
         process statement
         close
         */
-        //
+        String url="jdbc:postgresql://localhost:5432/demo";
+        String uname="postgres";
+        String pass="7788";
         Class.forName("org.postgresql.Driver");
+
+        Connection con = DriverManager.getConnection(url, uname, pass);
+        System.out.println("Connection Established");
     }
 }
