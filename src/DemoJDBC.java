@@ -11,6 +11,9 @@ public class DemoJDBC {
         process statement
         close
         */
+        int sid = 7;
+        String sname = "Pablo";
+        int marks = 71;
         String url="jdbc:postgresql://localhost:5432/demo";
         String uname="postgres";
         String pass="7788";
@@ -18,8 +21,13 @@ public class DemoJDBC {
 
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
-        Statement st = con.createStatement();
-//        st.execute(sql);
+        String sql = "insert into student values (?,?,?)";
+        PreparedStatement st = con.prepareStatement(sql);
+//        Statement st = con.createStatement();
+        st.setInt(1, sid);
+        st.setString(2, sname);
+        st.setInt(3, marks);
+        st.execute(sql);
 
 //        ResultSet rs = st.executeQuery(sql);
 ////        rs.next();
