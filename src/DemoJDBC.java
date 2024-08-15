@@ -18,10 +18,15 @@ public class DemoJDBC {
 
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
-        String sql = "select sname from student where sid=2";
+        String sql = "select sname from student where sid=1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
-        System.out.println(rs.next());
+        rs.next();
+       String name = rs.getString("sname");
+        System.out.println(name);
+
+//        System.out.println(rs.next());
         con.close();
+        System.out.println("Connection closed");
     }
 }
