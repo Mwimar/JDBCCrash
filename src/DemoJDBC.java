@@ -18,10 +18,10 @@ public class DemoJDBC {
 
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
-        String sql = "insert into student values(5, 'Phanice', 99)";
+        String sql = "delete from student where sid = 1";
         Statement st = con.createStatement();
-        boolean status = st.execute(sql);
-        System.out.println(status);
+        st.execute(sql);
+
 //        ResultSet rs = st.executeQuery(sql);
 ////        rs.next();
 ////       String name = rs.getString("sname");
