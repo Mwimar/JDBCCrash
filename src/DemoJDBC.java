@@ -11,23 +11,25 @@ public class DemoJDBC {
         process statement
         close
         */
-        int sid = 7;
-        String sname = "Pablo";
-        int marks = 71;
+        int sid = 9;
+        String sname = "Roro";
+        int marks = 32;
         String url="jdbc:postgresql://localhost:5432/demo";
         String uname="postgres";
         String pass="7788";
         Class.forName("org.postgresql.Driver");
 
+        String sql = "insert into student values (?,?,?)";
+
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
-        String sql = "insert into student values (?,?,?)";
         PreparedStatement st = con.prepareStatement(sql);
 //        Statement st = con.createStatement();
         st.setInt(1, sid);
         st.setString(2, sname);
         st.setInt(3, marks);
-        st.execute(sql);
+//        st.execute(sql);
+        st.execute();
 
 //        ResultSet rs = st.executeQuery(sql);
 ////        rs.next();
