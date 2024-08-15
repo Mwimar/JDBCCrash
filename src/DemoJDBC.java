@@ -18,9 +18,8 @@ public class DemoJDBC {
 
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
-        String sql = "delete from student where sid = 2";
         Statement st = con.createStatement();
-        st.execute(sql);
+//        st.execute(sql);
 
 //        ResultSet rs = st.executeQuery(sql);
 ////        rs.next();
