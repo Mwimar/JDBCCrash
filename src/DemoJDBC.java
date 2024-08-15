@@ -18,17 +18,19 @@ public class DemoJDBC {
 
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
-        String sql = "select * from student ";
+        String sql = "insert into student values(5, 'Phanice', 99)";
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(sql);
-//        rs.next();
-//       String name = rs.getString("sname");
-//        System.out.println(name);
-        while(rs.next()){
-            System.out.print(rs.getInt(1 )+ " - ");
-            System.out.print(rs.getString(2)+ " - ");
-            System.out.println(rs.getInt(3));
-        }
+        boolean status = st.execute(sql);
+        System.out.println(status);
+//        ResultSet rs = st.executeQuery(sql);
+////        rs.next();
+////       String name = rs.getString("sname");
+////        System.out.println(name);
+//        while(rs.next()){
+//            System.out.print(rs.getInt(1 )+ " - ");
+//            System.out.print(rs.getString(2)+ " - ");
+//            System.out.println(rs.getInt(3));
+//        }
 
 //        System.out.println(rs.next());
         con.close();
