@@ -18,12 +18,17 @@ public class DemoJDBC {
 
         Connection con = DriverManager.getConnection(url, uname, pass);
         System.out.println("Connection Established");
-        String sql = "select sname from student where sid=1";
+        String sql = "select * from student ";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
-        rs.next();
-       String name = rs.getString("sname");
-        System.out.println(name);
+//        rs.next();
+//       String name = rs.getString("sname");
+//        System.out.println(name);
+        while(rs.next()){
+            System.out.print(rs.getInt(1 )+ " - ");
+            System.out.print(rs.getString(2)+ " - ");
+            System.out.println(rs.getInt(3));
+        }
 
 //        System.out.println(rs.next());
         con.close();
